@@ -17,7 +17,7 @@ export class UserService {
   constructor(private http: HttpClient, private tokenStorage: TokenStorageService) {
     this.httpOptions = {
       responseType: 'text',
-      headers: new HttpHeaders({ 'Authorization': this.tokenStorage.getToken()}
+      headers: new HttpHeaders({ 'Authorization': this.tokenStorage.getToken()})
     };
   }
 
