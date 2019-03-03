@@ -1,5 +1,5 @@
 
-export class SigupRequest {
+export class SignupRequest {
   name: string;
   username: string;
   email: string;
