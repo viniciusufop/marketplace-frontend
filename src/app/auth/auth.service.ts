@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {SigupRequest} from '../models/request';
 import {SignupRequest} from '../models/request/sigup.request';
 import {LoginRequest} from '../models/request/login.request';
 import {JwtResponse} from '../models/response/jwt.response';

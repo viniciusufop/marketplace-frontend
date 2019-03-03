@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {TokenStorageService} from '../auth/token-storage.service';
+import {HttpParamsOptions} from '@angular/common/http/src/params';
 
 @Injectable({
   providedIn: 'root'
@@ -11,18 +13,24 @@ export class UserService {
   private userUrl = this.baseUrl + '/api/test/user';
   private pmUrl = this.baseUrl + '/api/test/pm';
   private adminUrl = this.baseUrl + '/api/test/admin';
+  private httpOptions;
 
-  constructor(private http: HttpClient) { }
-
-  getUserBoard(): Observable<string> {
-    return this.http.get(this.userUrl, { responseType: 'text' });
+  constructor(private http: HttpClient, private tokenStorage: TokenStorageService) {
+    this.httpOptions = {
+      responseType: 'text',
+      headers: new HttpHeaders({ 'Authorization': this.tokenStorage.getToken()}
+    };
   }
 
-  getPMBoard(): Observable<string> {
-    return this.http.get(this.pmUrl, { responseType: 'text' });
+  getUserBoard(): Observable<Object> {
+    return this.http.get(this.userUrl, this.httpOptions);
   }
 
-  getAdminBoard(): Observable<string> {
-    return this.http.get(this.adminUrl, { responseType: 'text' });
+  getPMBoard(): Observable<Object> {
+    return this.http.get(this.pmUrl, this.httpOptions);
+  }
+
+  getAdminBoard(): Observable<Object> {
+    return this.http.get(this.adminUrl, this.httpOptions);
   }
 }

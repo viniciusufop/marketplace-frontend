@@ -1,10 +1,10 @@
 
 export class LoginRequest {
-  nickname: String;
+  username: String;
   password: String;
 
-  constructor(nickname: String, password: String) {
-    this.nickname = nickname;
+  constructor(username: String, password: String) {
+    this.username = username;
     this.password = password;
   }
 }

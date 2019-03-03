@@ -14,9 +14,9 @@ export class PmComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getUserBoard().subscribe(
+    this.userService.getPMBoard().subscribe(
       data => {
-        this.board = data;
+        this.board = data.toString();
       },
       error => {
         this.errorMessage = `${error.status}: ${JSON.parse(error.error).message}`;
