@@ -1,0 +1,13 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input id="search"
+           type="search" placeholder="O que você deseja?"
+           aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto"
+           (keyup)="search($event)">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
