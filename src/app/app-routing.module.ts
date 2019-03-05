@@ -6,6 +6,8 @@ import {PmComponent} from './pm/pm.component';
 import {AdminComponent} from './admin/admin.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
+import {AuthGuardService} from './auth/auth.guard.service';
+import {Role} from './models/dto/role';
 
 const routes: Routes = [
   {
@@ -14,15 +16,21 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    component: UserComponent
+    component: UserComponent,
+    canActivate: [AuthGuardService],
+    data: {roles : [Role.USER, Role.ADMIN]}
   },
   {
     path: 'pm',
-    component: PmComponent
+    component: PmComponent,
+    canActivate: [AuthGuardService],
+    data: {roles : [Role.PM, Role.ADMIN]}
   },
   {
     path: 'admin',
-    component: AdminComponent
+    component: AdminComponent,
+    canActivate: [AuthGuardService],
+    data: {roles : [Role.ADMIN]}
   },
   {
     path: 'auth/login',
