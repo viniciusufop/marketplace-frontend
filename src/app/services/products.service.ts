@@ -6,11 +6,11 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class ProductsService {
-  private baseUrl = 'http://localhost:9000/products/public/';
+  private baseUrl = 'http://localhost:9000/products/public';
   private searchNameProductsUrl = '/search';
   constructor(private http: HttpClient) { }
 
   searchNameProducts(nameSearch: string): Observable<Object> {
-    return this.http.get(this.baseUrl + nameSearch + this.searchNameProductsUrl);
+    return this.http.get(this.baseUrl + this.searchNameProductsUrl + '?name=' + nameSearch);
   }
 }
