@@ -12,9 +12,17 @@ import { AdminComponent } from './admin/admin.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {httpInterceptorProviders} from './auth/auth-interceptor';
-import {MatAutocompleteModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatRippleModule} from '@angular/material';
+import {
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatPaginatorModule,
+  MatRippleModule, MatTableModule
+} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { ProductTableComponent } from './product-table/product-table.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +33,8 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     UserComponent,
     PmComponent,
     AdminComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    ProductTableComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +47,9 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatRippleModule
+    MatRippleModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
