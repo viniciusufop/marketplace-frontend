@@ -16,9 +16,7 @@ import {
   MatAutocompleteModule,
   MatButtonModule,
   MatFormFieldModule,
-  MatInputModule,
-  MatPaginatorModule,
-  MatRippleModule, MatTableModule
+  MatInputModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SearchBarComponent } from './search-bar/search-bar.component';
@@ -46,10 +44,7 @@ import { ProductTableComponent } from './product-table/product-table.component';
     MatAutocompleteModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule,
-    MatRippleModule,
-    MatTableModule,
-    MatPaginatorModule
+    MatInputModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

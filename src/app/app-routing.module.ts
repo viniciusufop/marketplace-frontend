@@ -8,6 +8,7 @@ import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {AuthGuardService} from './auth/auth.guard.service';
 import {Role} from './models/dto/role';
+import {ProductTableComponent} from './product-table/product-table.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,12 @@ const routes: Routes = [
   {
     path: 'signup',
     component: RegisterComponent
+  },
+  {
+    path: 'products',
+    component: ProductTableComponent,
+    canActivate: [AuthGuardService],
+    runGuardsAndResolvers: 'paramsOrQueryParamsChange '
   },
   {
     path: '',

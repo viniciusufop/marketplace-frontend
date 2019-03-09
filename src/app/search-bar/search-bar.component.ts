@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {ProductsService} from '../services/products.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
@@ -10,15 +11,15 @@ import {ProductsService} from '../services/products.service';
 export class SearchBarComponent implements OnInit {
   private myControl = new FormControl();
   private options: string[] = [];
-  constructor(private productsService: ProductsService) {
-  }
+  constructor(private productsService: ProductsService,
+              private router: Router) { }
 
   ngOnInit() {
   }
 
   search($event) {
     const value = ($event.srcElement as HTMLInputElement).value;
-    if(value.length > 2) {
+    if (value.length > 2) {
       this.productsService.searchNameProducts(value).subscribe(
         data => {
           this.options = data;
@@ -31,5 +32,9 @@ export class SearchBarComponent implements OnInit {
     } else {
       this.options = [];
     }
+  }
+  onEnter(value: string): void {
+    console.log(value);
+    this.router.navigate(['products'], { queryParams: { 'name': value } });
   }
 }
