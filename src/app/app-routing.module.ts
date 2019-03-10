@@ -9,6 +9,7 @@ import {RegisterComponent} from './register/register.component';
 import {AuthGuardService} from './auth/auth.guard.service';
 import {Role} from './models/dto/role';
 import {ProductTableComponent} from './product-table/product-table.component';
+import {ProductDetailComponent} from './product-detail/product-detail.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,11 @@ const routes: Routes = [
   {
     path: 'products',
     component: ProductTableComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'products/:id',
+    component: ProductDetailComponent,
     canActivate: [AuthGuardService]
   },
   {

@@ -52,6 +52,6 @@ export class ProductTableComponent implements OnInit, OnDestroy {
   }
 
   selectProduct(product: Product): void {
-    console.log(product.id);
+    this.router.navigate(['products/' + product.id]);
   }
 }

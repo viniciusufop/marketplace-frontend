@@ -20,4 +20,8 @@ export class ProductsService {
     return this.http.get<PageProduct>(this.baseUrl + this.listNameProductsUrl + '?name='
       + name + '&size=' + size + '&page=' + ( page - 1 ));
   }
+
+  getProduct(uuid: string): Observable<Product> {
+    return this.http.get<Product>(this.baseUrl + '/' + uuid);
+  }
 }
