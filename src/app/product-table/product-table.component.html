@@ -6,9 +6,9 @@
   </tr>
   </thead>
   <tbody>
-  <tr  *ngFor="let el of elements">
-    <th scope="row">{{el.id}}</th>
-    <td>{{el.name}}</td>
-  </tr>
+    <tr  *ngFor="let el of elements" (click)="selectProduct(el)">
+      <th scope="row">{{el.id}}</th>
+      <th>{{el.name}}</th>
+    </tr>
   </tbody>
 </table>
