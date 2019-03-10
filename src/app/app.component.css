@@ -1,3 +1,7 @@
 .logo {
   border-radius: 25%;
 }
+
+.nav-reverse {
+  flex-direction: row-reverse;
+}
