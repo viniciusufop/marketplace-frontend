@@ -44,8 +44,7 @@ const routes: Routes = [
   {
     path: 'products',
     component: ProductTableComponent,
-    canActivate: [AuthGuardService],
-    runGuardsAndResolvers: 'paramsOrQueryParamsChange '
+    canActivate: [AuthGuardService]
   },
   {
     path: '',
