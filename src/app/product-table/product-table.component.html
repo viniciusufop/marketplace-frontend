@@ -1,14 +1,15 @@
-<table mdbTable class="table table-hover">
-  <thead class="thead-light">
-  <tr>
-    <th *ngFor="let head of headElements; let i = index" scope="col">{{head}}
-    </th>
-  </tr>
-  </thead>
-  <tbody>
-    <tr  *ngFor="let el of elements" (click)="selectProduct(el)">
-      <th scope="row">{{el.id}}</th>
-      <th>{{el.name}}</th>
-    </tr>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-md-4" *ngFor="let el of elements">
+    <div class="card" >
+      <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{el.name}}</h5>
+        <p class="card-text">{{el.description}}</p>
+        <button class="btn btn-primary" (click)="selectProduct(el)">Comprar</button>
+      </div>
+    </div>
+    <br/>
+  </div>
+</div>
+
+

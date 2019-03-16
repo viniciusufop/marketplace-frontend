@@ -40,6 +40,6 @@ export class ProductDetailComponent implements OnInit {
   }
 
   comprar(): void {
-    console.log('quer comprar o produto= ' + this.product.id);
+    console.log('quer comprar o produto= ' + this.product.idES);
   }
 }
