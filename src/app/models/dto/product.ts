@@ -1,7 +1,13 @@
 
 export class Product {
-  id: string;
+  idES: string;
+  idDB: number;
   name: string;
+  description: string;
+  idProductProvider: string;
+  provider: string;
+  value: number;
+  productType: string;
 }
 
 export class PageProduct {

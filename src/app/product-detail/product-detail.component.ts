@@ -29,7 +29,7 @@ export class ProductDetailComponent implements OnInit {
     if (this.product === undefined) {
       return '';
     }
-    return this.product.id;
+    return this.product.idES;
   }
 
   nameProduct(): string {

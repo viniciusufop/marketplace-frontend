@@ -9,7 +9,7 @@ import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
   styleUrls: ['./product-table.component.css']
 })
 export class ProductTableComponent implements OnInit, OnDestroy {
-  headElements = ['UUID', 'NAME'];
+  headElements = ['ElasticSearchID', 'NAME'];
   elements: Product[] = [];
   name: string;
   navigationSubscription;
@@ -52,6 +52,6 @@ export class ProductTableComponent implements OnInit, OnDestroy {
   }
 
   selectProduct(product: Product): void {
-    this.router.navigate(['products/' + product.id]);
+    this.router.navigate(['products/' + product.idES]);
   }
 }
