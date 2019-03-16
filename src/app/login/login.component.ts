@@ -13,7 +13,6 @@ export class LoginComponent implements OnInit {
   form: any = {};
   isLoggedIn = false;
   isLoginFailed = false;
-  errorMessage = '';
   roles: string[] = [];
   private loginRequest: LoginRequest;
 
@@ -45,8 +44,7 @@ export class LoginComponent implements OnInit {
         this.reloadPage();
       },
       error => {
-        console.log(error);
-        this.errorMessage = error.error.message;
+        console.log(error.error.message);
         this.isLoginFailed = true;
       }
     );
