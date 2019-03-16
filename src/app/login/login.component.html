@@ -4,34 +4,36 @@
 </div>
 
 <ng-template #loggedOut>
-  <div class="row col-sm-6" style="max-width:350px;">
-    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
-               required />
-        <div *ngIf="f.submitted && username.invalid">
-          <div *ngIf="username.errors.required">Username is required</div>
-        </div>
+  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate class="central">
+    <div class="div-center">
+      <p class="h2 text-center">Login do Cliente</p>
+    </div>
+    <div class="form-group div-center">
+      <label>Username:</label>
+      <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
+             required />
+      <div *ngIf="f.submitted && username.invalid">
+        <div *ngIf="username.errors.required">Username is required</div>
       </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
-               required minlength="6" />
-        <div *ngIf="f.submitted && password.invalid">
-          <div *ngIf="password.errors.required">Password is required</div>
-          <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
-        </div>
+    </div>
+    <div class="form-group div-center">
+      <label>Password:</label>
+      <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
+             required minlength="6" />
+      <div *ngIf="f.submitted && password.invalid">
+        <div *ngIf="password.errors.required">Password is required</div>
+        <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
       </div>
-      <div class="form-group">
-        <button class="btn btn-primary">Login</button>
-        <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
-          Login failed: {{errorMessage}}
-        </div>
+    </div>
+    <div class="form-group div-center">
+      <button class="btn btn-outline-success button-login">Login</button>
+      <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+        Login failed: {{errorMessage}}
       </div>
-    </form>
-    <hr />
-    <p>Don't have an account?</p>
-    <a href="signup" class="btn btn-success">Sign Up</a>
-  </div>
+    </div>
+  </form>
+
+  <div class="div-center">
+    <p class="text-center">Não tem cadastro? <a href="signup">Cadastre-se</a></p>
+  </div>s
 </ng-template>

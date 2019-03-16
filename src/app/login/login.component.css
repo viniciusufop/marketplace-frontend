@@ -1,0 +1,34 @@
+/* definicao usando media query */
+@media screen and (min-width: 770px) {
+  .div-center {
+    margin: 0 auto;
+    width: 40%; /* Valor da Largura */
+    margin: 3px auto;
+  }
+}
+
+@media screen and (max-width: 770px) and (min-width: 505px) {
+  .div-center {
+    margin: 0 auto;
+    width: 50%; /* Valor da Largura */
+    margin: 3px auto;
+  }
+}
+
+@media screen and (max-width: 504px) {
+  .div-center {
+    margin: 0 auto;
+    width: 70%; /* Valor da Largura */
+    margin: 3px auto;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.button-login {
+  width: 100%;
+  margin: 3px auto;
+}
+
