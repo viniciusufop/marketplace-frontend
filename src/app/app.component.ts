@@ -10,12 +10,14 @@ import {FormControl} from '@angular/forms';
 export class AppComponent implements OnInit {
   private roles: string[];
   private authority: string;
+  private username: string;
 
   constructor(private tokenStorage: TokenStorageService) {
   }
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
+      this.username = this.tokenStorage.getUsername();
       this.roles = this.tokenStorage.getAuthorities();
       this.roles.every(role => {
         if (role === 'ROLE_ADMIN') {

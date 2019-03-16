@@ -16,11 +16,13 @@ const httpOptions = {
 export class AuthService {
 
   private baseUrl: string;
-  private loginUrl = this.baseUrl + '/api/auth/signin';
-  private signupUrl = this.baseUrl + '/api/auth/signup';
+  private loginUrl: string;
+  private signupUrl: string;
 
   constructor(private http: HttpClient, private config: BackendConfig) {
     this.baseUrl = config.BASE_URL;
+    this.loginUrl = this.baseUrl + '/api/auth/signin';
+    this.signupUrl = this.baseUrl + '/api/auth/signup';
   }
 
   attemptAuth(credentials: LoginRequest): Observable<JwtResponse> {

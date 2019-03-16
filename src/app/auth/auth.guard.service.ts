@@ -19,8 +19,6 @@ export class AuthGuardService implements CanActivate {
     const token = this.tokenStorageService.getToken();
     if (token != null && this.tokenStorageService.getAuthorities() != null) {
       this.tokenStorageService.getAuthorities().forEach(function (value) {
-        console.log('pesquisando: ' + value + ' entre ' + route.data.roles);
-        console.log(route.data.roles.indexOf(value));
         autorited = autorited || (route.data.roles.indexOf(value) > -1);
       });
     }

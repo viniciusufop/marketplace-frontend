@@ -10,14 +10,17 @@ import {BackendConfig} from '../backend-config';
 export class UserService {
 
   private baseUrl: string;
-  private userUrl = this.baseUrl + '/api/test/user';
-  private pmUrl = this.baseUrl + '/api/test/pm';
-  private adminUrl = this.baseUrl + '/api/test/admin';
+  private userUrl: string;
+  private pmUrl: string;
+  private adminUrl: string;
   private httpOptions;
 
   constructor(private http: HttpClient, private tokenStorage: TokenStorageService,
               private config: BackendConfig) {
     this.baseUrl = config.BASE_URL;
+    this.userUrl = this.baseUrl + '/api/test/user';
+    this.pmUrl = this.baseUrl + '/api/test/pm';
+    this.adminUrl = this.baseUrl + '/api/test/admin';
     this.httpOptions = {
       responseType: 'text',
       headers: new HttpHeaders({ 'Authorization': this.tokenStorage.getToken()})
