@@ -2,15 +2,18 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {PageProduct, Product} from '../models/dto/product';
+import {BackendConfig} from '../backend-config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
-  private baseUrl = 'http://localhost:9000/products/public';
+  private baseUrl: string;
   private searchNameProductsUrl = '/search';
   private listNameProductsUrl = '/list';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private config: BackendConfig) {
+  this.baseUrl = config.BASE_URL + '/products/public';
+  }
 
   searchNameProducts(nameSearch: string): Observable<string[]> {
     return this.http.get<string[]>(this.baseUrl + this.searchNameProductsUrl + '?name=' + nameSearch);

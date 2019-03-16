@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {SignupRequest} from '../models/request/sigup.request';
 import {LoginRequest} from '../models/request/login.request';
 import {JwtResponse} from '../models/response/jwt.response';
+import {BackendConfig} from '../backend-config';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -14,11 +15,13 @@ const httpOptions = {
 })
 export class AuthService {
 
-  private baseUrl = 'http://localhost:9000';
+  private baseUrl: string;
   private loginUrl = this.baseUrl + '/api/auth/signin';
   private signupUrl = this.baseUrl + '/api/auth/signup';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private config: BackendConfig) {
+    this.baseUrl = config.BASE_URL;
+  }
 
   attemptAuth(credentials: LoginRequest): Observable<JwtResponse> {
     return this.http.post<JwtResponse>(this.loginUrl, credentials, httpOptions);
