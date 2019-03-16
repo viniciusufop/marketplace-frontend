@@ -9,6 +9,13 @@
 
       <!-- parte que indica o board de cada tipo de usuario-->
       <ul class="nav navbar-nav col-md-3 nav-reverse" routerLinkActive="active">
+        <!-- link de autorizacao -->
+        <li *ngIf="!authority" class="nav-item">
+          <a class="nav-link" routerLink="auth/login">Login</a>
+        </li>
+        <li *ngIf="authority" class="nav-item">
+          <a class="nav-link" (click)="logout()">Logout</a>
+        </li>
         <li *ngIf="authority === 'user'" class="nav-item">
           <a class="nav-link" routerLink="user">{{username}}</a>
         </li>
@@ -18,11 +25,6 @@
         <li *ngIf="authority === 'pm'" class="nav-item">
           <a class="nav-link" routerLink="pm">{{username}}</a>
         </li>
-        <!-- link de autorizacao -->
-        <li *ngIf="!authority" class="nav-item">
-          <a class="nav-link" routerLink="auth/login">Login</a>
-        </li>
-        <li class="nav-item"><a class="nav-link" routerLink="home">Home</a></li>
       </ul>
   </nav>
 
