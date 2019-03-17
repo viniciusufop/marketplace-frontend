@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl} from '@angular/forms';
 import {ProductsService} from '../services/products.service';
 import {Router} from '@angular/router';
 
@@ -9,7 +8,6 @@ import {Router} from '@angular/router';
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent implements OnInit {
-  private myControl = new FormControl();
   private options: string[] = [];
   constructor(private productsService: ProductsService,
               private router: Router) { }
