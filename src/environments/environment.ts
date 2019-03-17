@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  APIEndpoint: 'http://localhost:9000'
+  APIEndpoint: 'http://posgraduacaomarketplace.eastus.cloudapp.azure.com:9000'
 };
 
 /*
