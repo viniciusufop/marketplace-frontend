@@ -9,7 +9,6 @@ import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
   styleUrls: ['./product-table.component.css']
 })
 export class ProductTableComponent implements OnInit, OnDestroy {
-  headElements = ['ElasticSearchID', 'NAME'];
   elements: Product[] = [];
   name: string;
   navigationSubscription;
@@ -40,8 +39,8 @@ export class ProductTableComponent implements OnInit, OnDestroy {
   }
 
   listProducts(): void {
-    this.name = this.route.snapshot.queryParamMap.get('name');
-    this.productService.listProducts(5, 1, this.name).subscribe(
+    this.name = this.obterName();
+    this.productService.listProducts(9, 1, this.name).subscribe(
       data => {
         this.elements = data.content;
       }, error => {
@@ -49,6 +48,13 @@ export class ProductTableComponent implements OnInit, OnDestroy {
         this.elements = [];
       }
     );
+  }
+
+  obterName(): string {
+    if (this.route.snapshot.queryParamMap.get('name') === null) {
+      return ' ';
+    }
+    return this.route.snapshot.queryParamMap.get('name');
   }
 
   selectProduct(product: Product): void {

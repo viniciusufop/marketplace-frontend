@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TokenStorageService} from './auth/token-storage.service';
 import {FormControl} from '@angular/forms';
+import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +12,21 @@ export class AppComponent implements OnInit {
   private roles: string[];
   private authority: string;
   private username: string;
-
-  constructor(private tokenStorage: TokenStorageService) {
+  private navigationSubscription;
+  constructor(private tokenStorage: TokenStorageService, private router: Router) {
+    this.navigationSubscription = this.router.events.subscribe((e: any) => {
+      // If it is a NavigationEnd event re-initalise the component
+      if (e instanceof NavigationEnd) {
+        this.configurarBarra();
+      }
+    });
   }
 
   ngOnInit() {
+    this.configurarBarra();
+  }
+
+  configurarBarra(): void {
     if (this.tokenStorage.getToken()) {
       this.username = this.tokenStorage.getUsername();
       this.roles = this.tokenStorage.getAuthorities();
@@ -33,7 +44,7 @@ export class AppComponent implements OnInit {
     }
   }
 
-  logout() {
+  logout(): void {
     this.tokenStorage.signOut();
     window.location.reload();
   }

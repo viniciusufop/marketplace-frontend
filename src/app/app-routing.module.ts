@@ -13,10 +13,6 @@ import {ProductDetailComponent} from './product-detail/product-detail.component'
 
 const routes: Routes = [
   {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
     path: 'user',
     component: UserComponent,
     canActivate: [AuthGuardService],
@@ -54,7 +50,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'products',
     pathMatch: 'full'
   }
 ];

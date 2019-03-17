@@ -14,7 +14,7 @@
           <a class="nav-link" routerLink="auth/login">Login</a>
         </li>
         <li *ngIf="authority" class="nav-item">
-          <a class="nav-link" (click)="logout()">Logout</a>
+          <a class="nav-link" (click)="logout()">Sair</a>
         </li>
         <li *ngIf="authority === 'user'" class="nav-item">
           <a class="nav-link" routerLink="user">{{username}}</a>
