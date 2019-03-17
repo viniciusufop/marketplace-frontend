@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent implements OnInit {
-  private options: string[] = [];
+  options: string[] = [];
   constructor(private productsService: ProductsService,
               private router: Router) { }
 

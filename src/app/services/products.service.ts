@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {PageProduct, Product} from '../models/dto/product';
-import {BackendConfig} from '../backend-config';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,8 @@ export class ProductsService {
   private baseUrl: string;
   private searchNameProductsUrl = '/search';
   private listNameProductsUrl = '/list';
-  constructor(private http: HttpClient, private config: BackendConfig) {
-  this.baseUrl = config.BASE_URL + '/products/public';
+  constructor(private http: HttpClient) {
+  this.baseUrl = environment.APIEndpoint + '/products/public';
   }
 
   searchNameProducts(nameSearch: string): Observable<string[]> {

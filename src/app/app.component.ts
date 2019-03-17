@@ -10,7 +10,7 @@ import {NavigationEnd, Router} from '@angular/router';
 })
 export class AppComponent implements OnInit {
   private roles: string[];
-  private authority: string;
+  authority: string;
   private username: string;
   private navigationSubscription;
   constructor(private tokenStorage: TokenStorageService, private router: Router) {
