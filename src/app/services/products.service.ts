@@ -12,7 +12,7 @@ export class ProductsService {
   private searchNameProductsUrl = '/search';
   private listNameProductsUrl = '/list';
   constructor(private http: HttpClient) {
-  this.baseUrl = environment.APIEndpoint + '/products/public';
+  this.baseUrl = environment.APIEndpoint + 'products/public';
   }
 
   searchNameProducts(nameSearch: string): Observable<string[]> {

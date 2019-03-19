@@ -21,8 +21,8 @@ export class AuthService {
 
   constructor(private http: HttpClient) {
     this.baseUrl = environment.APIEndpoint;
-    this.loginUrl = this.baseUrl + '/api/auth/signin';
-    this.signupUrl = this.baseUrl + '/api/auth/signup';
+    this.loginUrl = this.baseUrl + 'api/auth/signin';
+    this.signupUrl = this.baseUrl + 'api/auth/signup';
   }
 
   attemptAuth(credentials: LoginRequest): Observable<JwtResponse> {

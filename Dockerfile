@@ -9,11 +9,13 @@ RUN apk update && apk add --no-cache make git
 
 # Move our files into directory name "app"
 WORKDIR /app
+
 COPY package.json package-lock.json  /app/
 RUN npm install @angular/cli@7.0.7 -g
 RUN cd /app && npm install
-COPY .  /app
 
+COPY angular.json tsconfig.json tslint.json  /app/
+COPY src /app/
 # Build with $env variable from outside
 RUN cd /app && npm run build:$env
 
