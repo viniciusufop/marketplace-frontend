@@ -10,6 +10,7 @@ import { TokenStorageService } from '../auth/token-storage.service';
 export class ProductSaleComponent implements OnInit {
 
   sale: Sale = new Sale();
+  usuario: string;
   currentValue = 0;
   finalValue = 0;
   constructor(
@@ -18,6 +19,7 @@ export class ProductSaleComponent implements OnInit {
 
   ngOnInit() {
     this.sale = this.tokenStorage.getSale();
+    this.usuario = this.tokenStorage.getUsername();
     this.currentValue = 1;
     this.alterValue();
   }
