@@ -17,9 +17,9 @@ export class UserService {
 
   constructor(private http: HttpClient, private tokenStorage: TokenStorageService) {
     this.baseUrl = environment.APIEndpoint;
-    this.userUrl = this.baseUrl + 'api/test/user';
-    this.pmUrl = this.baseUrl + 'api/test/pm';
-    this.adminUrl = this.baseUrl + 'api/test/admin';
+    this.userUrl = this.baseUrl + '/api/test/user';
+    this.pmUrl = this.baseUrl + '/api/test/pm';
+    this.adminUrl = this.baseUrl + '/api/test/admin';
     this.httpOptions = {
       responseType: 'text',
       headers: new HttpHeaders({ 'Authorization': this.tokenStorage.getToken()})
