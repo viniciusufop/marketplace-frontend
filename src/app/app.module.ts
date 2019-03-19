@@ -24,6 +24,7 @@ import { ProductTableComponent } from './product-table/product-table.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductSaleComponent } from './product-sale/product-sale.component';
+import { UixMatNumberSpinnerModule } from 'uix-mat-number-spinner';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ProductSaleComponent } from './product-sale/product-sale.component';
     MatAutocompleteModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    UixMatNumberSpinnerModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

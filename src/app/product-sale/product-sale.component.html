@@ -1,14 +1,34 @@
-<div class="row">
-  <div class="border rounded-lg margin-tratada">
-    <div class="col-md-6">
+<div class="row border rounded-lg margin-tratada">
+    <div class="col-md-2">
         <img class="card-img-top" src="{{sale.product.urlPrimaryImage}}" alt="Product image">
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
         <h4>{{sale.product.name}}</h4>
         <p>{{sale.product.description}}</p>
     </div>
+    <div class="col-md-6">
+      <table>
+        <thead>
+          <tr>
+            <th class="text-center">Valor Unitário</th>
+            <th class="text-center">Quantidade</th>
+            <th class="text-center">Valor Final</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="text-center">{{sale.product.value | currency:'BRL'}}</th>
+            <th class="text-center">
+                <mat-form-field class="mat-cell-input-number quatity-custom" >
+                  <uix-mat-number-spinner increase="1" decrease="1" fix="0" [(value)]="currentValue"
+                  (click)="alterValue()">
+                  </uix-mat-number-spinner>
+                  <input matInput type="number" min="1"  [(ngModel)]="currentValue" >
+                </mat-form-field>
+            </th>
+            <th class="text-right">{{finalValue | currency:'BRL'}}</th>
+          </tr>
+        </tbody>
+      </table>
   </div>
-
-  
-
 </div>
