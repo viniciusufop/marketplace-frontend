@@ -8,6 +8,8 @@ export class Product {
   provider: string;
   value: number;
   productType: string;
+  urlPrimaryImage: string;
+  urlImages: string[];
 }
 
 export class PageProduct {

@@ -56,8 +56,4 @@ export class ProductTableComponent implements OnInit, OnDestroy {
     }
     return this.route.snapshot.queryParamMap.get('name');
   }
-
-  selectProduct(product: Product): void {
-    this.router.navigate(['products/' + product.idES]);
-  }
 }

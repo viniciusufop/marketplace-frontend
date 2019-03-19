@@ -22,6 +22,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ProductTableComponent } from './product-table/product-table.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     AdminComponent,
     SearchBarComponent,
     ProductTableComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,

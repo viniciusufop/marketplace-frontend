@@ -1,15 +1,5 @@
 <div class="row">
   <div class="col-md-4" *ngFor="let el of elements">
-    <div class="card" >
-      <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{el.name}}</h5>
-        <p class="card-text">{{el.description}}</p>
-        <button class="btn btn-primary" (click)="selectProduct(el)">Comprar</button>
-      </div>
-    </div>
-    <br/>
+   <app-product-card [product]="el" ></app-product-card>
   </div>
 </div>
-
-
