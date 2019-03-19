@@ -15,7 +15,7 @@ RUN npm install @angular/cli@7.0.7 -g
 RUN cd /app && npm install
 
 COPY angular.json tsconfig.json tslint.json  /app/
-COPY src /app/
+COPY src /app/src
 # Build with $env variable from outside
 RUN cd /app && npm run build:$env
 
