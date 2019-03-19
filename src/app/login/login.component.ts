@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 import {TokenStorageService} from '../auth/token-storage.service';
 import {LoginRequest} from '../models/request/login.request';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,10 +15,12 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   roles: string[] = [];
+  returnUrl: string;
   private loginRequest: LoginRequest;
 
   constructor(private authService: AuthService,
               private tokenStorage: TokenStorageService,
+              private route: ActivatedRoute,
               private router: Router) { }
 
   ngOnInit() {
@@ -26,6 +28,8 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getAuthorities();
     }
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   onSubmit() {
@@ -44,7 +48,7 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getAuthorities();
-        this.router.navigate(['/']);
+        this.router.navigateByUrl(this.returnUrl);
       },
       error => {
         console.log(error.error.message);

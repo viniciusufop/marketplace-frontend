@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import {TokenStorageService} from './token-storage.service';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -24,6 +23,7 @@ export class AuthGuardService implements CanActivate {
     }
     if (!autorited) {
       // not logged in so redirect to login page with the return url
+      // alterar do alert para modal
       alert('Você não tem permissão para acessar essa página');
       this.router.navigate(['/auth/login'], { queryParams: { returnUrl: state.url }});
     }
