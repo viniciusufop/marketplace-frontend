@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SaleStorageService } from '../services/sale-storage.service';
 import { Sale } from '../models/dto/sale';
+import { TokenStorageService } from '../auth/token-storage.service';
 
 @Component({
   selector: 'app-product-sale',
@@ -13,11 +13,11 @@ export class ProductSaleComponent implements OnInit {
   currentValue = 0;
   finalValue = 0;
   constructor(
-    private saleStorage: SaleStorageService
+    private tokenStorage: TokenStorageService
   ) { }
 
   ngOnInit() {
-    this.sale = this.saleStorage.getSale();
+    this.sale = this.tokenStorage.getSale();
     this.currentValue = 1;
     this.alterValue();
   }

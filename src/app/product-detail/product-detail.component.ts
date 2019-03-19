@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Product} from '../models/dto/product';
 import {ProductsService} from '../services/products.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import { SaleStorageService } from '../services/sale-storage.service';
 import { Sale } from '../models/dto/sale';
+import { TokenStorageService } from '../auth/token-storage.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -15,7 +15,7 @@ export class ProductDetailComponent implements OnInit {
   product: Product = new Product();
   listProductImages: string[] = [];
   constructor(private productsService: ProductsService,
-    private saleStorage: SaleStorageService,
+    private tokenStorage: TokenStorageService,
     private route: ActivatedRoute,
     private router: Router) { }
 
@@ -37,7 +37,7 @@ export class ProductDetailComponent implements OnInit {
     console.log('quer comprar o produto= ' + this.product.idES);
     const sale = new Sale();
     sale.product = this.product;
-    this.saleStorage.addSale(sale);
+    this.tokenStorage.saveSale(sale);
     this.router.navigate(['sale/']);
   }
 }

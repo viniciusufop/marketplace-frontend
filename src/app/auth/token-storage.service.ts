@@ -5,6 +5,7 @@ import { Sale } from '../models/dto/sale';
 const TOKEN_KEY = 'AuthToken';
 const USERNAME_KEY = 'AuthUsername';
 const AUTHORITIES_KEY = 'AuthAuthorities';
+const SALE_KEY = 'SaleKey';
 
 @Injectable({
   providedIn: 'root'
@@ -51,5 +52,19 @@ export class TokenStorageService {
     }
 
     return this.roles;
+  }
+
+  public saveSale(sale: Sale) {
+    window.sessionStorage.removeItem(SALE_KEY);
+    window.sessionStorage.setItem(SALE_KEY, JSON.stringify(sale));
+  }
+
+  public getSale(): Sale {
+    let sale: Sale;
+    if (sessionStorage.getItem(SALE_KEY)) {
+      sale = JSON.parse(sessionStorage.getItem(SALE_KEY));
+    }
+
+    return sale;
   }
 }
