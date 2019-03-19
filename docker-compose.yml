@@ -6,8 +6,10 @@ services:
       args:
         env: prod
     networks:
-    - net-frontend
+    - default
     ports:
     - 80:80
 networks:
-  net-frontend:
+  default:
+    external:
+      name: marketplace-backend_net-frontend
