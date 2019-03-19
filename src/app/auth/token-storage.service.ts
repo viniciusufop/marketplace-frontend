@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Role} from '../models/dto/role';
+import { Sale } from '../models/dto/sale';
 
 const TOKEN_KEY = 'AuthToken';
 const USERNAME_KEY = 'AuthUsername';

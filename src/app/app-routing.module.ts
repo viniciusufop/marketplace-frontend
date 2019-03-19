@@ -10,6 +10,7 @@ import {AuthGuardService} from './auth/auth.guard.service';
 import {Role} from './models/dto/role';
 import {ProductTableComponent} from './product-table/product-table.component';
 import {ProductDetailComponent} from './product-detail/product-detail.component';
+import { ProductSaleComponent } from './product-sale/product-sale.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,12 @@ const routes: Routes = [
     path: 'products/:id',
     component: ProductDetailComponent,
     canActivate: [AuthGuardService]
+  },
+  {
+    path: 'sale',
+    component: ProductSaleComponent,
+    canActivate: [AuthGuardService],
+    data: {roles : [Role.USER]}
   },
   {
     path: '',

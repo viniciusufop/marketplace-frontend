@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from '../models/dto/product';
 import {ProductsService} from '../services/products.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import { SaleStorageService } from '../services/sale-storage.service';
+import { Sale } from '../models/dto/sale';
 
 @Component({
   selector: 'app-product-detail',
@@ -10,42 +12,32 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ProductDetailComponent implements OnInit {
 
-  product: Product;
+  product: Product = new Product();
   listProductImages: string[] = [];
-  constructor(private productsService: ProductsService, private route: ActivatedRoute) { }
+  constructor(private productsService: ProductsService,
+    private saleStorage: SaleStorageService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     this.productsService.getProduct(this.route.snapshot.params['id']).subscribe(
       data => {
         this.product = data;
-        console.log(this.product.urlPrimaryImage);
-        console.log(this.product.urlImages);
         this.listProductImages = this.listProductImages.concat(this.product.urlPrimaryImage);
         this.listProductImages = this.listProductImages.concat(this.product.urlImages);
-        console.log(this.listProductImages);
       }, error => {
         console.log(error);
-        this.product = null;
+        this.product = new Product();
         this.listProductImages = [];
       }
     );
   }
 
-  idProduct(): string {
-    if (this.product === undefined) {
-      return '';
-    }
-    return this.product.idES;
-  }
-
-  nameProduct(): string {
-    if (this.product === undefined) {
-      return '';
-    }
-    return this.product.name;
-  }
-
   comprar(): void {
     console.log('quer comprar o produto= ' + this.product.idES);
+    const sale = new Sale();
+    sale.product = this.product;
+    this.saleStorage.addSale(sale);
+    this.router.navigate(['sale/']);
   }
 }

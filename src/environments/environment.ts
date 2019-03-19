@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  APIEndpoint: '/marketplace'
+  APIEndpoint: 'http://localhost:9000'
 };
 
 /*
