@@ -17,6 +17,7 @@ export class ProductCardComponent implements OnInit {
   }
 
   getImage(): string {
+    console.log(this.product.urlPrimaryImage);
     if (this.product.urlPrimaryImage === null) {
       return 'https://via.placeholder.com/150';
     }
