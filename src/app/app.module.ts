@@ -15,7 +15,9 @@ import {
   MatAutocompleteModule,
   MatButtonModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatDialogModule,
+  MatCardModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SearchBarComponent } from './search-bar/search-bar.component';
@@ -26,6 +28,7 @@ import { ProductSaleComponent } from './product-sale/product-sale.component';
 import { UixMatNumberSpinnerModule } from 'uix-mat-number-spinner';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavbarmobComponent } from './navbarmob/navbarmob.component';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,8 @@ import { NavbarmobComponent } from './navbarmob/navbarmob.component';
     ProductCardComponent,
     ProductSaleComponent,
     NavbarComponent,
-    NavbarmobComponent
+    NavbarmobComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
@@ -54,8 +58,12 @@ import { NavbarmobComponent } from './navbarmob/navbarmob.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDialogModule,
+    MatCardModule,
     UixMatNumberSpinnerModule
   ],
+  exports: [ MessageComponent ],
+  entryComponents: [MessageComponent],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })

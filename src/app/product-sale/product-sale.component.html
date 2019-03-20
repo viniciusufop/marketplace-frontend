@@ -31,8 +31,11 @@
                   <uix-mat-number-spinner increase="1" decrease="1" fix="0" [(value)]="currentValue"
                   (click)="alterValue()">
                   </uix-mat-number-spinner>
-                  <input matInput type="number" min="1"  [(ngModel)]="currentValue" >
+                  <input matInput type="number" min="1" step="any" [(ngModel)]="currentValue" (focusout)="alterValue()" >
                 </mat-form-field>
+                <mat-error *ngIf="isValueInvalid">
+                  Quantidade <strong>inválida</strong>
+                </mat-error>
             </th>
             <th class="text-right">{{finalValue | currency:'BRL'}}</th>
           </tr>
