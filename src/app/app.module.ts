@@ -29,6 +29,7 @@ import { UixMatNumberSpinnerModule } from 'uix-mat-number-spinner';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavbarmobComponent } from './navbarmob/navbarmob.component';
 import { MessageComponent } from './message/message.component';
+import { UserBasicComponent } from './user-basic/user-basic.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { MessageComponent } from './message/message.component';
     ProductSaleComponent,
     NavbarComponent,
     NavbarmobComponent,
-    MessageComponent
+    MessageComponent,
+    UserBasicComponent
   ],
   imports: [
     BrowserModule,
