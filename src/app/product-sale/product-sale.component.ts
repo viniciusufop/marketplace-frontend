@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Sale } from '../models/dto/sale';
 import { TokenStorageService } from '../auth/token-storage.service';
+import {ProductsService} from '../services/products.service';
 
 @Component({
   selector: 'app-product-sale',
@@ -10,21 +11,34 @@ import { TokenStorageService } from '../auth/token-storage.service';
 export class ProductSaleComponent implements OnInit {
 
   sale: Sale = new Sale();
-  usuario: string;
+  user: string;
   currentValue = 0;
   finalValue = 0;
   constructor(
-    private tokenStorage: TokenStorageService
-  ) { }
+    private tokenStorage: TokenStorageService,
+    private productService: ProductsService) { }
 
   ngOnInit() {
     this.sale = this.tokenStorage.getSale();
-    this.usuario = this.tokenStorage.getUsername();
+    this.user = this.tokenStorage.getUsername();
     this.currentValue = 1;
     this.alterValue();
   }
 
-  alterValue() {
+  alterValue(): void {
     this.finalValue = this.sale.product.value * this.currentValue;
+  }
+
+  corfimSale(): void {
+    this.sale.quantity = this.currentValue;
+    this.sale.totalValue = this.finalValue;
+    this.sale.username = this.user;
+    this.productService.sale(this.sale).subscribe(
+      data => {
+        console.log('sucesso');
+      }, error => {
+        console.log('error');
+      }
+    );
   }
 }

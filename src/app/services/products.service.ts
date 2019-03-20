@@ -1,8 +1,14 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {PageProduct, Product} from '../models/dto/product';
 import {environment} from '../../environments/environment';
+import {Sale} from '../models/dto/sale';
+import {Receipt} from '../models/dto/receipt';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +32,9 @@ export class ProductsService {
 
   getProduct(uuid: string): Observable<Product> {
     return this.http.get<Product>(this.baseUrl + '/' + uuid);
+  }
+
+  sale(sale: Sale): Observable<Receipt> {
+    return this.http.post<Receipt>(environment.APIEndpoint + '/products/sale', sale, httpOptions);
   }
 }
