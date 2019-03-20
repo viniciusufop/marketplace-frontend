@@ -3,7 +3,7 @@
     <h5>Compras efetivadas</h5>
   </div>
   <div class="col-12">
-    <table class="table">
+    <table class="table table-striped table-hover">
       <thead>
         <tr>
           <th class="disable-col" scope="col">Código da compra</th>
@@ -15,7 +15,7 @@
       <tbody>
         <tr *ngFor="let sale of sales">
           <th class="disable-col" scope="row">{{sale.idReceipt}}</th>
-          <td>{{sale.dateCreate | date: 'dd/MM/yyyy' }}</td>
+          <td>{{sale.dateCreate | date: 'dd/MM/yyyy hh:mm:ss' }}</td>
           <td>{{sale.product.name}}</td>
           <td>{{sale.totalValue | currency:'BRL' }}</td>
         </tr>
