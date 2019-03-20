@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-12 alert alert-primary">
+    <h5>Compras efetivadas</h5>
+  </div>
+  <div class="col-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="disable-col" scope="col">Código da compra</th>
+          <th scope="col">Data da Compra</th>
+          <th scope="col">Nome produto</th>
+          <th scope="col">valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sale of sales">
+          <th class="disable-col" scope="row">{{sale.idReceipt}}</th>
+          <td>{{sale.dateCreate | date: 'dd/MM/yyyy' }}</td>
+          <td>{{sale.product.name}}</td>
+          <td>{{sale.totalValue | currency:'BRL' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>  
+</div>

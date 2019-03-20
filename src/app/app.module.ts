@@ -30,6 +30,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NavbarmobComponent } from './navbarmob/navbarmob.component';
 import { MessageComponent } from './message/message.component';
 import { UserBasicComponent } from './user-basic/user-basic.component';
+import { ReceiptComponent } from './receipt/receipt.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { UserBasicComponent } from './user-basic/user-basic.component';
     NavbarComponent,
     NavbarmobComponent,
     MessageComponent,
-    UserBasicComponent
+    UserBasicComponent,
+    ReceiptComponent
   ],
   imports: [
     BrowserModule,

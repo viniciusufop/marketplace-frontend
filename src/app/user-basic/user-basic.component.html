@@ -3,10 +3,19 @@
     <h5>Dados básicos do usuário logado</h5>
   </div>
   <div class="col-12">
-    <p>
-      <strong>Username:</strong> {{info.username}}<br/>
-      <strong>Roles:</strong> {{info.authorities}}<br />
-      <strong>Token:</strong> {{info.token}}.
-    </p>
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Nome do usuário</th>
+              <th scope="col">Nível de Permissão</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">{{info.username}}</th>
+              <td>{{info.authorities}}</td>
+            </tr>
+          </tbody>
+        </table>
   </div>
 </div>
