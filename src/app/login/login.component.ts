@@ -33,8 +33,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form);
-
     this.loginRequest = new LoginRequest(
       this.form.username,
       this.form.password);
@@ -42,9 +40,6 @@ export class LoginComponent implements OnInit {
     this.authService.attemptAuth(this.loginRequest).subscribe(
       data => {
         this.tokenStorage.saveToken(data.token);
-        this.tokenStorage.saveUsername(data.username);
-        this.tokenStorage.saveAuthorities(data.authorities);
-
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getAuthorities();

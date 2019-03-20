@@ -27,7 +27,7 @@ export class ProductSaleComponent implements OnInit {
 
   ngOnInit() {
     this.sale = this.tokenStorage.getSale();
-    this.user = this.tokenStorage.getUsername();
+    this.user = this.tokenStorage.getName();
     this.currentValue = 1;
     this.alterValue();
   }

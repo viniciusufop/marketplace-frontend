@@ -15,7 +15,7 @@ export class UserBasicComponent implements OnInit {
   ngOnInit() {
     this.info = {
       token: this.token.getToken(),
-      username: this.token.getUsername(),
+      username: this.token.getName(),
       authorities: this.token.getAuthorities()
     };
   }
