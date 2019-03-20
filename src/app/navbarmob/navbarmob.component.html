@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light nav-size">
+  <a class="col-2" href="/">
+    <img src="/assets/images/image_nav_bar.png" width="30" height="30" class="d-inline-block align-top logo" alt="">
+  </a>
+
+  <div class="col-8">
+    <ul class="nav nav-mob navbar-nav " routerLinkActive="active">
+      <!-- link de autorizacao -->
+      <li *ngIf="!authority" class="nav-item">
+        <a class="nav-link  item-link" routerLink="auth/login">Login</a>
+      </li>
+      <li *ngIf="authority" class="nav-item">
+        <a class="nav-link item-link" (click)="logout()">Sair</a>
+      </li>
+      <li *ngIf="authority === 'user'" class="nav-item">
+        <a class="nav-link item-link" routerLink="user">{{username}}</a>
+      </li>
+    </ul>
+  </div>
+  <!-- barra de pesquisa-->
+  <app-search-bar class="col-12"></app-search-bar>
+</nav>

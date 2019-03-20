@@ -1,36 +1,6 @@
 <div class="container">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand col-md-3" href="#">
-        <img src="/assets/images/image_nav_bar.png" width="30" height="30" class="d-inline-block align-top logo" alt="">
-        MarketPlace
-      </a>
-      <!-- barra de pesquisa-->
-      <app-search-bar class="col-md-6"></app-search-bar>
-
-      <!-- parte que indica o board de cada tipo de usuario-->
-      <div class="col-md-3">
-        <ul class="nav navbar-nav nav-reverse" routerLinkActive="active">
-          <!-- link de autorizacao -->
-          <li *ngIf="!authority" class="nav-item">
-            <a class="nav-link" routerLink="auth/login">Login</a>
-          </li>
-          <li *ngIf="authority" class="nav-item">
-            <a class="nav-link" (click)="logout()">Sair</a>
-          </li>
-          <li *ngIf="authority === 'user'" class="nav-item">
-            <a class="nav-link" routerLink="user">{{username}}</a>
-          </li>
-          <!--<li *ngIf="authority === 'admin'" class="nav-item">-->
-          <!--<a class="nav-link" routerLink="admin">{{username}}</a>-->
-          <!--</li>-->
-          <!--<li *ngIf="authority === 'pm'" class="nav-item">-->
-          <!--<a class="nav-link" routerLink="pm">{{username}}</a>-->
-          <!--</li>-->
-        </ul>
-      </div>
-
-  </nav>
-
+  <app-navbar class="row navbar-desk"></app-navbar>
+  <app-navbarmob class="row navbar-mob"></app-navbarmob>
   <br/>
   <router-outlet></router-outlet>
 </div>

@@ -1,7 +1,15 @@
-.logo {
-  border-radius: 25%;
+.navbar-mob{
+  display:none;
+}
+.navbar-desk{
+  display:flex;
 }
 
-.nav-reverse {
-  flex-direction: row-reverse;
+@media only screen and (max-width: 991px) {
+  .navbar-mob{
+    display:flex;
+  }
+  .navbar-desk{
+    display:none;
+  }
 }

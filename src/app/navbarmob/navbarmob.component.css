@@ -1,0 +1,16 @@
+.nav-size {
+  width: 100%;
+}
+
+.logo {
+  border-radius: 25%;
+}
+
+.item-link{
+  margin: 0 0.5em;
+  cursor: pointer;
+}
+
+.nav-mob {
+  flex-direction: row-reverse;
+}
