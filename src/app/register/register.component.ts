@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SignupRequest} from '../models/request/sigup.request';
 import {AuthService} from '../auth/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,8 @@ export class RegisterComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit() { }
 
@@ -30,9 +32,10 @@ export class RegisterComponent implements OnInit {
 
     this.authService.signUp(this.signupRequest).subscribe(
       data => {
-        console.log(data);
         this.isSignedUp = true;
         this.isSignUpFailed = false;
+        alert('Seu cadastro foi realizado com sucesso! Efetue o login no sistema');
+        this.router.navigate(['auth/login']);
       },
       error => {
         console.log(error);

@@ -35,9 +35,6 @@ export class NavbarComponent implements OnInit {
         if (role === 'ROLE_ADMIN') {
           this.authority = 'admin';
           return false;
-        } else if (role === 'ROLE_PM') {
-          this.authority = 'pm';
-          return false;
         }
         this.authority = 'user';
         return true;

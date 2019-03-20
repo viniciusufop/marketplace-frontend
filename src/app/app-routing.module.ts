@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {HomeComponent} from './home/home.component';
 import {UserComponent} from './user/user.component';
-import {PmComponent} from './pm/pm.component';
 import {AdminComponent} from './admin/admin.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
@@ -18,12 +16,6 @@ const routes: Routes = [
     component: UserComponent,
     canActivate: [AuthGuardService],
     data: {roles : [Role.USER, Role.ADMIN]}
-  },
-  {
-    path: 'pm',
-    component: PmComponent,
-    canActivate: [AuthGuardService],
-    data: {roles : [Role.PM, Role.ADMIN]}
   },
   {
     path: 'admin',
