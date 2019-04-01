@@ -30,7 +30,7 @@
 * Efetue o clone do projeto através do comando: ```git clone https://github.com/viniciusufop/marketplace-frontend.git```
 * Acesse a pasta marketplace-frontend criada.
 * Execute o comando ```docker-compose up -d```
-* O Docker vai subir todos o container do projeto.
+* O Docker vai subir o container do projeto.
 
 ## Estrutura de containers do projeto
 
