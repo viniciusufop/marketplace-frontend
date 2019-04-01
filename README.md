@@ -1,27 +1,43 @@
-# MarketplaceFront
+# Projeto Marketplace Backend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.5.
+  Este projeto faz parte da prova de conceito da conclusão do curso de pós-graduação em Arquitetura de Sistemas Distribuídos. Ele contempla o desenvolvimento do frontend da aplicação.
 
-## Development server
+## Objetivo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+  A prova de conceito fui desenvolvida para apresentar a solução proposta para algumas restrições arquiteturais do projeto.
 
-## Code scaffolding
+## Tecnologias Utilizadas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Git
+* Angular
+* Angular Materials
+* Bootstrap
+* CSS
+* HTML
+* JavaScript
+* TypeScript
+* JWT
+* NINGX
+* Docker
+* Docker Compose
 
-## Build
+## Pré Requisitos para executar o projeto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+  A máquina deve possuir git, docker e docker compose instalados e o projeto [marketplace-backend](https://github.com/viniciusufop/marketplace-backend) deve estar executando.
 
-## Running unit tests
+## Executando o projeto
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* Efetue o clone do projeto através do comando: ```git clone https://github.com/viniciusufop/marketplace-frontend.git```
+* Acesse a pasta marketplace-frontend criada.
+* Execute o comando ```docker-compose up -d```
+* O Docker vai subir todos o container do projeto.
 
-## Running end-to-end tests
+## Estrutura de containers do projeto
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+  O arquivo docker-compose está configurado para utilizar a network abaixo:
 
-## Further help
+* net-frontend 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+  O arquivo docker-compose está configurado para subir o container abaixo:
+
+* Container da aplicação marketplace-frontend exposto na porta 80 (associado net-frontend)
