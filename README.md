@@ -1,4 +1,4 @@
-# Projeto Marketplace Backend
+# Projeto Marketplace Frontend
 
   Este projeto faz parte da prova de conceito da conclusão do curso de pós-graduação em Arquitetura de Sistemas Distribuídos. Ele contempla o desenvolvimento do frontend da aplicação.
 
